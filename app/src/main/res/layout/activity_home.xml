@@ -4,36 +4,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".HomeActivity"
+    android:background="#ACA07D">
 
 
     <LinearLayout
-        android:orientation="vertical"
-        android:gravity="center"
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <Button
+        android:layout_marginBottom="200dp"
+
+        >
+
+        <TextView
             android:id="@+id/loginBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:background="@drawable/signin_button"
+            android:gravity="center"
             android:text="Sign In"
-             />
+            android:textColor="@color/white"
+            android:textSize="35sp"
+            />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="OR"
-            android:textStyle="bold"
+            android:textColor="@color/white"
             android:textSize="30sp"
-            />
-        <Button
+             />
+
+        <TextView
             android:id="@+id/signupBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:background="@drawable/signin_button"
+            android:gravity="center"
             android:text="Sign Up"
-            />
+            android:textColor="@color/white"
+            android:textSize="35sp" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/GorillaType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="Gorilla Type"
+        android:textColor="#402E2A"
+        android:textSize="60sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/Gorilla"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/GorillaType"
+        android:layout_marginTop="20dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

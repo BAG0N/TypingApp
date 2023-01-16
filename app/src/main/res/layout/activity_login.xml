@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:background="#ACA07D">
 
     <LinearLayout
         android:orientation="vertical"
@@ -17,14 +18,16 @@
         app:layout_constraintTop_toTopOf="parent">
         <EditText
             android:id="@+id/etEmail"
+            android:textColorHint="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints="emailAddress"
             android:inputType="textEmailAddress"
-            android:hint="Email email dodo"
+            android:hint="Email"
             />
         <EditText
             android:id="@+id/etPassword"
+            android:textColorHint="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints="emailAddress"
