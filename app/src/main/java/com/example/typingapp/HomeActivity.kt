@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
@@ -12,11 +14,18 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        findViewById<Button>(R.id.loginBtn).setOnClickListener {
+        findViewById<TextView>(R.id.loginBtn).setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
         }
-        findViewById<Button>(R.id.signupBtn).setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+        findViewById<TextView>(R.id.signupBtn).setOnClickListener {
+            Firebase.auth.signInWithEmailAndPassword("test@gmail.com", "test123").addOnCompleteListener {
+                if (it.isSuccessful) {
+                    finish()
+                    startActivity(Intent(this, MainActivity::class.java))
+                } else {
+                    Toast.makeText(this, "Invalid Credentials!", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
 }

@@ -33,12 +33,17 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     private var currentIndex = 0
     private var isStarted = false
     private var totalCharacters = 0
-    private val timeInSeconds: Long = 15
+
+    var timeInSeconds: Long = 15
 
     private var sessionID = Random.nextDouble().toString()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val settings = requireActivity().getSharedPreferences("Settings", 0)
+        timeInSeconds = settings.getLong("Time", 15)
+
         isStarted = false
         words = loadWords()
         fragmentView = view
@@ -58,12 +63,13 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             imm.showSoftInput(mainInput, InputMethodManager.SHOW_IMPLICIT)
         }
         mainInput.addTextChangedListener {
-            if (!isStarted) {
+            val txt = mainInput.text.toString()
+
+            if (!isStarted && txt.isNotEmpty()) {
                 isStarted = true
                 start()
             }
 
-            val txt = mainInput.text.toString()
             val currentWordData = currentWords[currentIndex]
 
             if (currentWordData.word.startsWith(txt)) {
@@ -95,11 +101,11 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
     private fun restart() {
         currentIndex = 0
-        isStarted = false
         mainInput.text.clear()
         currentWords.clear()
         timerLabel.text = timeInSeconds.toString()
         mainInput.isEnabled = true
+        isStarted = false
 
         initText()
     }
@@ -113,6 +119,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     }
 
     private fun start() {
+        println("STARTED")
         mainInput.isEnabled = true
         totalCharacters = 0
         val newId = Random.nextDouble().toString()
