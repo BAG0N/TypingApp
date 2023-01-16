@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "367172914661",
+    "project_id": "authentication-test-4c12d",
+    "storage_bucket": "authentication-test-4c12d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:367172914661:android:a2348fc8caba35c3b3330c",
+        "android_client_info": {
+          "package_name": "com.example.typingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "367172914661-46j87058ota50gd8uo2p75fu19l29i09.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoJjrnc64RJdzIvmOVKOYresF80P75hfM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "367172914661-46j87058ota50gd8uo2p75fu19l29i09.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

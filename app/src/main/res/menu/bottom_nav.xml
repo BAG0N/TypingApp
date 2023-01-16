@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="@string/type_nav" android:icon="@drawable/keyboard" android:id="@+id/mainFragment" />
+    <item android:title="@string/profile_nav" android:icon="@drawable/person" android:id="@+id/profileFragment" />
+    <item android:title="@string/settings_nav" android:icon="@drawable/settings" android:id="@+id/settingsFragment" />
+</menu>
