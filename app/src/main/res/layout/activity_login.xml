@@ -15,31 +15,70 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginBottom="200dp">
         <EditText
             android:id="@+id/etEmail"
-            android:textColorHint="@color/white"
+            android:textColorHint="#878987"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:drawableStart="@drawable/email"
+            android:drawablePadding="5dp"
+            android:padding="10dp"
             android:autofillHints="emailAddress"
             android:inputType="textEmailAddress"
             android:hint="Email"
+            android:textSize="25sp"
+            android:background="@drawable/signin_button"
+            android:layout_marginBottom="10dp"
             />
+
         <EditText
             android:id="@+id/etPassword"
-            android:textColorHint="@color/white"
+            android:textColorHint="#878987"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:drawableStart="@drawable/lock"
+            android:drawablePadding="5dp"
+            android:padding="10dp"
             android:autofillHints="emailAddress"
             android:inputType="textPassword"
             android:hint="Password"
+            android:textSize="25sp"
+            android:background="@drawable/signin_button"
             />
-        <Button
+        <TextView
             android:id="@+id/signInBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/white"
             android:text="Sign In"
+            android:background="@drawable/signin_button"
+            android:layout_marginTop="10dp"
+            android:textSize="25sp"
             />
     </LinearLayout>
+    <TextView
+        android:id="@+id/GorillaType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="Gorilla Type"
+        android:textColor="#402E2A"
+        android:textSize="60sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/gorilla"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/GorillaType"
+        android:layout_marginTop="20dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
