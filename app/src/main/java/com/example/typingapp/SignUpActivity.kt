@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -16,11 +17,16 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
+        findViewById<TextView>(R.id.homeBtn).setOnClickListener {
+            finish()
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
+
         val emailInput = findViewById<EditText>(R.id.etEmail)
         val passwordInput = findViewById<EditText>(R.id.etPassword)
         val confirmPasswordInput = findViewById<EditText>(R.id.etPassword2)
 
-        findViewById<Button>(R.id.signUpBtn).setOnClickListener {
+        findViewById<TextView>(R.id.signUpBtn).setOnClickListener {
             val email = emailInput.text.toString()
             val password = passwordInput.text.toString()
             if (email.isEmpty() || password.isEmpty()) {

@@ -19,6 +19,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
 
         initTimeButton(view.findViewById(R.id.first), 15)
         initTimeButton(view.findViewById(R.id.second), 30)
+        initTimeButton(view.findViewById(R.id.third), 60)
     }
 
     private fun initTimeButton(btn: Button, time: Number) {

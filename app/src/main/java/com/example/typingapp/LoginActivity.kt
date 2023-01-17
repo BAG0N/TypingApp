@@ -17,6 +17,11 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        findViewById<TextView>(R.id.homeBtn).setOnClickListener {
+            finish()
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
+
         val emailInput = findViewById<EditText>(R.id.etEmail)
         val passwordInput = findViewById<EditText>(R.id.etPassword)
 

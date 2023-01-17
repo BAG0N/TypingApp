@@ -1,6 +1,7 @@
 package com.example.typingapp
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.TypedValue
@@ -12,6 +13,7 @@ import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.core.content.edit
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
@@ -44,6 +46,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         val settings = requireActivity().getSharedPreferences("Settings", 0)
         timeInSeconds = settings.getLong("Time", 15)
 
+        currentIndex = 0
         isStarted = false
         words = loadWords()
         fragmentView = view
@@ -73,9 +76,9 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             val currentWordData = currentWords[currentIndex]
 
             if (currentWordData.word.startsWith(txt)) {
-                currentWordData.view.setTextColor(ContextCompat.getColor(view.context, R.color.purple_500))
+                currentWordData.view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.transparent))
             } else {
-                currentWordData.view.setTextColor(ContextCompat.getColor(view.context, R.color.red))
+                currentWordData.view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.red))
             }
 
             if (txt.endsWith(' ')) {
@@ -83,8 +86,9 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 if (typedWord == currentWordData.word) {
                     totalCharacters += txt.length
                     val newWordData = currentWords[++currentIndex]
-                    newWordData.view.setTextColor(ContextCompat.getColor(view.context, R.color.purple_500))
-                    currentWordData.view.setTextColor(ContextCompat.getColor(view.context, R.color.purple_200))
+                    newWordData.view.setTextColor(ContextCompat.getColor(view.context, R.color.highlighted_text))
+                    currentWordData.view.setTextColor(ContextCompat.getColor(view.context, R.color.purple_700))
+                    currentWordData.view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.transparent))
                     mainInput.text.clear()
 
                     if (newWordData.index != currentWordData.index && newWordData.index == 2) {
@@ -115,11 +119,10 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         for (i in 0 until TOTAL_LINES) {
             addContainer(i)
         }
-        currentWords[0].view.setTextColor(ContextCompat.getColor(fragmentView.context, R.color.purple_500))
+        currentWords[0].view.setTextColor(ContextCompat.getColor(fragmentView.context, R.color.highlighted_text))
     }
 
     private fun start() {
-        println("STARTED")
         mainInput.isEnabled = true
         totalCharacters = 0
         val newId = Random.nextDouble().toString()
@@ -135,9 +138,18 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
             override fun onFinish() {
                 if (newId == sessionID && isStarted) {
-                    timerLabel.text = "${getWPM()} WPM"
+                    val wpm = getWPM()
+                    timerLabel.text = "${wpm} WPM"
                     mainInput.text.clear()
                     mainInput.isEnabled = false
+
+                    val prefs = requireActivity().getSharedPreferences("Settings", 0)
+                    val scores = prefs.getString("Scores", "50,75,50")
+                    prefs.edit {
+                        putString("Scores", "$scores,$wpm")
+                        apply()
+                    }
+
                 }
             }
         }.start()

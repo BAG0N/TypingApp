@@ -8,6 +8,7 @@
     android:background="#ACA07D">
 
     <TextView
+        android:id="@+id/homeBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Home Page"
@@ -19,8 +20,6 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="10dp"/>
-
-
 
     <LinearLayout
         android:orientation="vertical"

@@ -2,12 +2,14 @@ package com.example.typingapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,5 +23,17 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfig)
 
         navMenu.setupWithNavController(navController)
+        initScores()
+    }
+
+    private fun initScores() {
+        val wpms = arrayListOf<Int>()
+        for (i in 1..10) {
+            wpms.add(Random.nextInt(40, 100))
+        }
+        getSharedPreferences("Settings", 0).edit {
+            putString("Scores", wpms.joinToString(","))
+            apply()
+        }
     }
 }

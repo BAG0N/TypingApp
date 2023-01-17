@@ -17,14 +17,15 @@ class HomeActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
         }
         findViewById<TextView>(R.id.signupBtn).setOnClickListener {
-            Firebase.auth.signInWithEmailAndPassword("test@gmail.com", "test123").addOnCompleteListener {
-                if (it.isSuccessful) {
-                    finish()
-                    startActivity(Intent(this, MainActivity::class.java))
-                } else {
-                    Toast.makeText(this, "Invalid Credentials!", Toast.LENGTH_SHORT).show()
-                }
-            }
+            startActivity(Intent(this, SignUpActivity::class.java))
+//            Firebase.auth.signInWithEmailAndPassword("test@gmail.com", "test123").addOnCompleteListener {
+//                if (it.isSuccessful) {
+//                    finish()
+//                    startActivity(Intent(this, MainActivity::class.java))
+//                } else {
+//                    Toast.makeText(this, "Invalid Credentials!", Toast.LENGTH_SHORT).show()
+//                }
+//            }
         }
     }
 }
