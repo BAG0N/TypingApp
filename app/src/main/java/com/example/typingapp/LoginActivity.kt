@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -19,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
         val emailInput = findViewById<EditText>(R.id.etEmail)
         val passwordInput = findViewById<EditText>(R.id.etPassword)
 
-        findViewById<Button>(R.id.signInBtn).setOnClickListener {
+        findViewById<TextView>(R.id.signInBtn).setOnClickListener {
             val email = emailInput.text.toString()
             val password = passwordInput.text.toString()
             if (email.isEmpty() || password.isEmpty()) {
