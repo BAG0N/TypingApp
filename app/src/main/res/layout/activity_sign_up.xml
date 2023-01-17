@@ -7,6 +7,19 @@
     tools:context=".SignUpActivity"
     android:background="#ACA07D">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Home Page"
+        android:textColor="#402E2A"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:drawableStart="@drawable/ic_baseline_home_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"/>
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -19,6 +32,7 @@
         <EditText
             android:id="@+id/etEmail"
             android:textColorHint="#878987"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:drawableStart="@drawable/email"
@@ -35,6 +49,7 @@
         <EditText
             android:id="@+id/etPassword"
             android:textColorHint="#878987"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:drawableStart="@drawable/lock"
@@ -50,6 +65,7 @@
         <EditText
             android:id="@+id/etPassword2"
             android:textColorHint="#878987"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:drawableStart="@drawable/lock"
@@ -63,8 +79,8 @@
             />
         <TextView
             android:id="@+id/signUpBtn"
-            android:layout_width="100dp"
-            android:layout_height="45dp"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
             android:gravity="center"
             android:textColor="@color/white"
@@ -74,18 +90,45 @@
             android:textSize="25sp"
             />
     </LinearLayout>
+
     <TextView
         android:id="@+id/GorillaType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="Make Gorilla Type Account"
+        android:text="Gorilla Type"
         android:textColor="#402E2A"
-        android:textSize="30sp"
+        android:textSize="60sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="50dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Account"
+        android:textStyle="italic"
+        android:textSize="50sp"
+        android:textColor="#402E2A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/GorillaType"
+        android:layout_marginTop="60dp"/>
+
+
+    <TextView
+        android:id="@+id/Create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create"
+        android:textColor="#402E2A"
+        android:textSize="50sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <ImageView
         android:layout_width="100dp"
@@ -95,5 +138,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/GorillaType"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="40dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

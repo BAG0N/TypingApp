@@ -7,6 +7,21 @@
     tools:context=".LoginActivity"
     android:background="#ACA07D">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Home Page"
+        android:textColor="#402E2A"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:drawableStart="@drawable/ic_baseline_home_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"/>
+
+
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -19,6 +34,7 @@
         <EditText
             android:id="@+id/etEmail"
             android:textColorHint="#878987"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:drawableStart="@drawable/email"
@@ -35,6 +51,7 @@
         <EditText
             android:id="@+id/etPassword"
             android:textColorHint="#878987"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:drawableStart="@drawable/lock"
