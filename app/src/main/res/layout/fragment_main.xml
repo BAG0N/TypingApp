@@ -8,13 +8,13 @@
     android:background="#ACA07D">
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/gorilla"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:background="@drawable/gorila"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="10dp"/>
 
     <TextView
         android:id="@+id/timerLabel"
